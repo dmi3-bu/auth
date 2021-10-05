@@ -37,3 +37,9 @@ bundle exec rackup
 ```
 bundle exec rspec
 ```
+
+# Запуск сидов
+
+```
+bundle exec rake db:seed
+```
