@@ -1,0 +1,8 @@
+en:
+  services:
+    user_sessions:
+      create_service:
+        unauthorized: 'Session cannot be created'
+    auth:
+      fetch_user_service:
+        forbidden: 'Access restricted'
