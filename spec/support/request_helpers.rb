@@ -3,11 +3,11 @@ module RequestHelpers
     JSON(last_response.body)
   end
 
-  def auth_headers(user)
+  def auth_header(user)
     session = user.sessions.create!
     token = JwtEncoder.encode(uuid: session.uuid)
 
-    { 'Authorization' => "Bearer #{token}" }
+    "Bearer #{token}"
   end
 
   def json_request(uri, method, params: {})
