@@ -1,7 +1,6 @@
 class Application < Sinatra::Base
   include ::ApiErrors
   include Validations
-  include Auth
 
   configure :development do
     register Sinatra::Reloader
@@ -34,19 +33,6 @@ class Application < Sinatra::Base
       status :created
     else
       error_response(result.user, :unprocessable_entity)
-    end
-  end
-
-  post '/auth' do
-    result = Auth::FetchUserService.call(extracted_token['uuid'])
-
-    if result.success?
-      meta = { user_id: result.user.id }
-
-      status :ok
-      json meta: meta
-    else
-      error_response(result.errors, :forbidden)
     end
   end
 
