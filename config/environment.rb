@@ -22,5 +22,6 @@ Dir['./app/serializers/*.rb'].sort.each { |file| require file }
 Dir['./app/services/*.rb'].sort.each { |file| require file }
 Dir['./app/services/**/*.rb'].sort.each { |file| require file }
 Dir['./app/lib/**/*.rb'].sort.each { |file| require file }
+Dir['./config/consumer.rb'].sort.each { |file| require file }
 
 require './app/application'

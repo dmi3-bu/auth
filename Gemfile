@@ -12,6 +12,7 @@ gem 'sinatra-activerecord'
 gem 'rake'
 
 gem 'puma', '~> 4.3'
+gem 'bunny'
 
 gem 'kaminari', '~> 1.2.1'
 gem 'fast_jsonapi', '~> 1.5'
