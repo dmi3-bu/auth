@@ -6,14 +6,10 @@ require 'rake'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
 require 'sinatra/activerecord/rake'
+require 'sinatra/custom_logger'
 Bundler.require(:default, ENV['RACK_ENV'])
 
-# require 'fast_jsonapi'
-# require 'kaminari'
-# require 'dry-initializer'
-# require 'factory_bot'
-
-Dir['./config/initializers/*.rb'].sort.each { |file| require file }
+Dir['./config/initializers/*.rb'].sort.reject { |file| file == './config/initializers/logger.rb' }.each { |file| require file }
 Dir['./app/models/concerns/*.rb'].sort.each { |file| require file }
 Dir['./app/models/*.rb'].sort.each { |file| require file }
 Dir['./app/contracts/*.rb'].sort.each { |file| require file }
@@ -22,6 +18,6 @@ Dir['./app/serializers/*.rb'].sort.each { |file| require file }
 Dir['./app/services/*.rb'].sort.each { |file| require file }
 Dir['./app/services/**/*.rb'].sort.each { |file| require file }
 Dir['./app/lib/**/*.rb'].sort.each { |file| require file }
-Dir['./config/consumer.rb'].sort.each { |file| require file }
-
 require './app/application'
+require './config/initializers/logger'
+Dir['./config/consumer.rb'].sort.each { |file| require file }
