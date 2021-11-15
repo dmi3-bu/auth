@@ -3,3 +3,5 @@ tmp
 .idea
 /log/*
 !/log/.keep
+deploy/secrets.yml
+deploy/hosts
