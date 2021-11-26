@@ -6,7 +6,11 @@ module RabbitMq
 
   def connection
     @mutex.synchronize do
-      @connection ||= Bunny.new.start
+      @connection ||= Bunny.new(
+        host: Settings.rabbitmq.host,
+        username: Settings.rabbitmq.username,
+        password: Settings.rabbitmq.password
+      ).start
     end
   end
 
@@ -16,9 +20,6 @@ module RabbitMq
 
   def consumer_channel
     Thread.current[:rabbitmq_consumer_channel] ||=
-      connection.create_channel(
-        nil,
-        10
-      )
+      connection.create_channel(nil, Settings.rabbitmq.consumer_pool)
   end
 end

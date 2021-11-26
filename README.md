@@ -43,3 +43,9 @@ bundle exec rspec
 ```
 bundle exec rake db:seed
 ```
+
+# Деплой
+```
+docker build -t auth .
+ansible-playbook deploy/deploy.yml
+```
