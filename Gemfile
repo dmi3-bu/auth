@@ -22,6 +22,7 @@ gem 'dry-validation', '~> 1.7.0'
 gem 'jwt', '~> 2.2.1'
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'prometheus-client', '2.1.0'
 gem 'rack-ougai'
 gem 'rack-request-id'
 gem 'amazing_print'
